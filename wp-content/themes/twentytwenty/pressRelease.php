@@ -32,9 +32,15 @@
 		</div>
 		<div class="tab-content tab-content-custom">
 		  <div class="tab-pane fade show active">
-		  	<div class="container">
-		  		<h1 class="about-title text-center press-title">Press Release</h1>
+		  	<div class="container">(
+		  			  		<h1 class="about-title text-center press-title"><?php get_the_title(); ?></h1>
 		  		<ul class="list-group list-press rounded-0">
+		  			<?php 
+		  				$args = array(
+						        'post_type' => 'press-release', 'posts_per_page' => -1, 'order' => 'DESC');
+						   $loop = new WP_Query( $args );
+						   // while ( $loop->have_posts() ) : $loop->the_post();
+		  			?>
 		  		  <li class="list-group-item d-flex align-items-center">
 		  		  	<div class="flex-grow-1">
 		  		  	  <p class="list-press-text">

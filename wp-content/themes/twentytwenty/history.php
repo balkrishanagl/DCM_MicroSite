@@ -40,18 +40,7 @@
 	  		  	<h1 class="about-title text-center tab-content-custom-title">History</h1>
 	  		  	<div class="row g-0 justify-content-center">
 	  		  		<div class="col-md-10">
-		  		  		<p class="tab-content-custom-text mb40 history-text">
-		  		  			Our Founder Sir Shri Ram (1884- 1963) was an eminent and public-spirited philanthropist, outstanding industrialist, and among the visionary leaders of Indian business community.
-		  		  		</p>
-		  		  		<p class="tab-content-custom-text mb40 history-text">
-		  		  			Sir Shri Ram from humble beginnings, through his sheer hard work and persistence built one of India's largest business houses - the DCM Group. Born into a family of modest means, <strong>Shri Ram, in the 79 years of his life</strong>, built an industrial empire manufacturing a vast variety of goods like - textiles, sugar, chemicals, vanaspati, pottery, fans, sewing machines, electric motors and capacitors.
-		  		  		</p>
-		  		  		<p class="tab-content-custom-text mb40 history-text">
-		  		  			Driven by a passion for excellence, a relentless quest for quality, and a vision for a self-reliant India, he championed the cause of entrepreneurship and helped lay the foundation of an industrially strong nation post-independence. Founding not just new businesses and ventures but also institutions like <strong>FICCI and PHDCCI</strong> that today play a key role in the growth of modern India.
-		  		  		</p>
-		  		  		<p class="tab-content-custom-text history-text">
-		  		  			His belief was that businesses are built on strong values. With respect for people and society. A man of towering stature, he had many firsts to his name: at 46 years he was <strong>elected President of FICCI</strong>, he was on the first board of Reserve Bank of India and he set up the first commercial education institution in North India Shri Ram Collage of Commerce. Recognized by the British for his contributions to society and conferred with a Knighthood, his words continue to guide and inspire.
-		  		  		</p>	
+		  		  		<?php echo $post->post_content(); ?>	
 	  		  		</div>
 	  		  	</div>
 			  	</div>
