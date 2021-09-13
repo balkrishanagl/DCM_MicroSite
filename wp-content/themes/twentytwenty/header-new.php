@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en">
 	<head>
-		<!--  <meta charset="utf-8">
+		 <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>DCM - Sugar</title> -->
+		<!-- <title>DCM - Sugar</title> -->
 
 		<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/style.css">
@@ -11,7 +11,7 @@
 		<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/plugin/3d-carousel/main.css">
 		<!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
 		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" /> -->
-		<?php //wp_head(); ?>
+		<?php wp_head(); ?>
 	</head>
 	<body>
 		<header>
@@ -70,3 +70,51 @@
 				</div>
 			</nav>
 		</header>
+		<section class="banner">
+			<div class="position-relative bannerInn">
+				<!-- <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/banner.jpg" alt="" title="" class="img-fluid"> -->
+				<?php  
+						    $args = array(
+						        'post_type' => 'slider', 'posts_per_page' => -1, 'order' => 'DESC');
+						   $loop = new WP_Query( $args ); ?>
+				<div class="pic-wrapper">
+			    <?php $i=1; while ( $loop->have_posts() ) : $loop->the_post();
+			        
+			        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $loop->post->ID ), 'single-post-thumbnail' );
+				    ?>
+					<figure class="pic-<?php echo $i; ?>" style="background:url(<?php echo $image[0]; ?>);">
+					</figure>
+					<?php $i++; endwhile;
+				    ?>
+				</div>
+				<?php $j=1;while ( $loop->have_posts() ) : $loop->the_post(); ?>
+				<div class="banner-caption banner-caption<?php echo $j; ?>">
+					<h1 class="banner-caption-title"><?php echo $loop->post->post_title; ?></h1>
+					<p class="banner-caption-text mb-0"><?php echo $loop->post->post_content; ?></p>
+				</div>
+
+				<?php $j++;
+				endwhile;
+				 wp_reset_query();
+				 ?>
+			</div>
+			<ul class="list-unstyled mb-0 list-social">
+				<?php if(get_field('facebook_link', 6) != ''){ ?>
+				<li>
+					<a href="<?php echo get_field('facebook_link', 6) ?>"><i class="fb-con"></i></a>
+				</li>
+				<?php } if(get_field('twitter_link', 6) != ''){ ?>
+				<li>
+					<a href="<?php echo get_field('twitter_link', 6) ?>"><i class="twitter-con"></i></a>
+				</li>
+				<?php } if(get_field('youtube_link', 6) != ''){ ?>
+				<li>
+					<a href="<?php echo get_field('youtube_link',6) ?>"><i class="utube-con"></i></a>
+				</li>
+				<?php } if(get_field('linkedin_link', 6) != ''){ ?>
+				<li>
+					<a href="<?php echo get_field('linkedin_link', 6) ?>"><i class="linkedin-con"></i></a>
+				</li>
+				<?php } ?>
+			</ul>
+		</section>
