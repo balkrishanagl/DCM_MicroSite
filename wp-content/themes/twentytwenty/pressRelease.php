@@ -2,7 +2,26 @@
  /* Template Name: Press Release */
 
  get_header('new');
+ global $post;
 ?>
+<section class="banner">
+			<div class="position-relative bannerInn">
+				<img src="<?php echo get_field('desktop_banner', $post->ID) ?>" alt="" title="" class="img-fluid d-none d-md-block">
+				<img src="<?php echo get_field('mobile_banner', $post->ID) ?>" alt="" title="" class="img-fluid d-block d-md-none">
+			</div>
+			<?php include('social.php'); ?>
+			<!-- <ul class="list-unstyled mb-0 list-social list-social-inn">
+				<li>
+					<a href=""><i class="fb-con"></i></a>
+				</li>
+				<li>
+					<a href=""><i class="twitter-con"></i></a>
+				</li>
+				<li>
+					<a href=""><i class="utube-con"></i></a>
+				</li>
+			</ul> -->
+	</section>
 		<div class="sec-breadcrumb">
 			<div class="container">
 				<ol class="breadcrumb mb-0">

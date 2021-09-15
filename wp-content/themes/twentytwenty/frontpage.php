@@ -3,6 +3,37 @@
 
 get_header('new');
 ?>
+<section class="banner">
+			<div class="position-relative bannerInn">
+				<?php  
+					
+						    $args = array(
+						        'post_type' => 'slider', 'posts_per_page' => -1, 'order' => 'DESC');
+						   $loop = new WP_Query( $args ); ?>
+				<div class="pic-wrapper">
+			    <?php $i=1; while ( $loop->have_posts() ) : $loop->the_post();
+			        
+			        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $loop->post->ID ), 'single-post-thumbnail' );
+				    ?>
+					<figure class="pic-<?php echo $i; ?>" style="background:url(<?php echo $image[0]; ?>);">
+					</figure>
+					<?php $i++; endwhile;
+				    ?>
+				</div>
+				<?php $j=1;while ( $loop->have_posts() ) : $loop->the_post(); ?>
+				<div class="banner-caption banner-caption<?php echo $j; ?>">
+					<h1 class="banner-caption-title"><?php echo $loop->post->post_title; ?></h1>
+					<p class="banner-caption-text mb-0"><?php echo $loop->post->post_content; ?></p>
+				</div>
+
+				<?php $j++;
+				endwhile;
+				 wp_reset_query();
+				 ?>
+				
+			</div>
+			<?php include('social.php'); ?>
+		</section>
 		<section class="sec-1">
 			<div class="container">
 				<div class="text-center">
