@@ -72,8 +72,8 @@
 		</header>
 		<section class="banner">
 			<div class="position-relative bannerInn">
-				<!-- <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/banner.jpg" alt="" title="" class="img-fluid"> -->
 				<?php  
+					echo $_SERVER['REQUEST_URI'];
 						    $args = array(
 						        'post_type' => 'slider', 'posts_per_page' => -1, 'order' => 'DESC');
 						   $loop = new WP_Query( $args ); ?>
@@ -97,6 +97,7 @@
 				endwhile;
 				 wp_reset_query();
 				 ?>
+				
 			</div>
 			<ul class="list-unstyled mb-0 list-social">
 				<?php if(get_field('facebook_link', 6) != ''){ ?>
