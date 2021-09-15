@@ -97,11 +97,7 @@
 				<?php $j++;
 				endwhile;
 				 wp_reset_query();
-				}else{
-				 ?>
-				 	<img src="<?php echo get_field('desktop_banner', $post->ID); ?>" alt="" title="" class="img-fluid d-none d-md-block">
-					<img src="<?php echo get_field('mobile_banner', $post->ID); ?>" alt="" title="" class="img-fluid d-block d-md-none">
-				<?php } ?>
+				} ?>
 				
 			</div>
 			<ul class="list-unstyled mb-0 list-social">
