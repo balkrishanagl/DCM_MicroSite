@@ -1,6 +1,7 @@
 <?php 
  /* Template Name: History */
 
+global $post;
  get_header('new');
 ?>
 	<div class="sec-breadcrumb">
