@@ -73,7 +73,8 @@
 		<section class="banner">
 			<div class="position-relative bannerInn">
 				<?php  
-					echo $_SERVER['REQUEST_URI'];
+					
+					if(isset(home_url('/'))){
 						    $args = array(
 						        'post_type' => 'slider', 'posts_per_page' => -1, 'order' => 'DESC');
 						   $loop = new WP_Query( $args ); ?>
@@ -96,7 +97,11 @@
 				<?php $j++;
 				endwhile;
 				 wp_reset_query();
+				}else{
 				 ?>
+				 	<img src="<?php echo get_field('desktop_banner', $post->ID); ?>" alt="" title="" class="img-fluid d-none d-md-block">
+					<img src="<?php echo get_field('mobile_banner', $post->ID); ?>" alt="" title="" class="img-fluid d-block d-md-none">
+				<?php } ?>
 				
 			</div>
 			<ul class="list-unstyled mb-0 list-social">
