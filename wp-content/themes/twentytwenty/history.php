@@ -59,7 +59,7 @@
 	  		  	<h1 class="about-title text-center tab-content-custom-title">History</h1>
 	  		  	<div class="row g-0 justify-content-center">
 	  		  		<div class="col-md-10">
-		  		  		<?php echo $post->post_content(); ?>	
+		  		  		<?php the_content(); ?>	
 	  		  		</div>
 	  		  	</div>
 			  	</div>
