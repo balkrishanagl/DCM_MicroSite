@@ -1,5 +1,5 @@
 <?php 
- /* Template Name: History */
+ /* Template Name: Purpose */
 
  get_header('new');
  global $post;
@@ -39,9 +39,20 @@
 	  		  	<h1 class="about-title text-center tab-content-custom-title"><?php echo get_the_title(); ?></h1>
 	  		  	<div class="row g-0 justify-content-center">
 	  		  		<div class="col-md-10">
-		  		  		<?php the_content(); ?>	
+		  		  		<p class="tab-content-custom-text mb40 history-text history-text1 purpose-text">
+		  		  			<?php the_content(); ?>
+		  		  		</p>
 	  		  		</div>
 	  		  	</div>
+			  	</div>
+			  	<div class="sec-green">
+			  		<div class="container gimg-space">
+			  			<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); 
+			  			if(!empty($image)){ ?>
+			  			<img src="<?php echo $image[0]; ?>" alt="" title="" class="img-fluid">
+			  		<?php } ?>
+			  		</div>
+			  		<div class="green-bg"></div>
 			  	</div>
 			  </div>
 			</div>
