@@ -1,4 +1,6 @@
 # ignore everything in the root except the "wp-content" directory.
+wp-include/*
+wp-admin/*
 # !wp-content/
 
 # ignore everything in the "wp-content" directory, except:
@@ -18,8 +20,8 @@
 # node_modules/
 
 # ignore wp-config file
-# wp-config.php 
-# .htaccess
+*wp-config.php 
+*.htaccess
 
 # ignore log files and databases
 *.log
