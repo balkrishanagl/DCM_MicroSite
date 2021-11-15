@@ -14,27 +14,13 @@
 	<div class="sec-breadcrumb">
 			<div class="container">
 				<ol class="breadcrumb mb-0">
-				    <li class="breadcrumb-item"><a href="#"><i class="home-icon"></i>Home</a></li>
-				  <li class="breadcrumb-item"><a href="#">Our Businesses</a></li>
-				  <li class="breadcrumb-item active"><a href="#">Sugar</a></li>
+				    <li class="breadcrumb-item"><a href="<?php echo home_url('/') ?>">"><i class="home-icon"></i>Home</a></li>
+				  <li class="breadcrumb-item"><a href="#"><?php echo get_the_title($post->post_parent); ?></a></li>
+				  <li class="breadcrumb-item active"><a href="#"><?php echo get_the_title(); ?></a></li>
 				</ol>
 			</div>
 		</div>
-		<div class="nav-fill-custom">
-				<div class="container">
-					<ul class="nav nav-pills nav-fill">
-					  <li class="nav-item">
-					    <a href="javascript:void(0)" class="nav-link active">Sugar</a>
-					  </li>
-					  <li class="nav-item">
-					    <a href="ethanol.html" class="nav-link ">Ethanol</a>
-					  </li>
-					  <li class="nav-item">
-					    <a href="power.html" class="nav-link ">Power</a>
-					  </li>
-					</ul>
-				</div>
-			</div>
+		<?php include('ourBusiness_pagelink.php'); ?>
 			<div class="tab-content tab-content-custom">
 			  <div class="tab-pane fade show active">
 			  	<div class="farmer-training">

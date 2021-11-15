@@ -1,5 +1,23 @@
 <?php 
+/**
+ * Register navigation menus uses wp_nav_menu in five places.
+ *
+ * @since Twenty Twenty 1.0
+ */
+function twentytwenty_menus() {
 
+    $locations = array(
+        'primary'  => __( 'Desktop Horizontal Menu', 'twentytwenty' ),
+        'expanded' => __( 'Desktop Expanded Menu', 'twentytwenty' ),
+        'mobile'   => __( 'Mobile Menu', 'twentytwenty' ),
+        'footer'   => __( 'Footer Menu', 'twentytwenty' ),
+        'social'   => __( 'Social Menu', 'twentytwenty' ),
+    );
+
+    register_nav_menus( $locations );
+}
+
+add_action( 'init', 'twentytwenty_menus' );
 
 class WPDocs_Walker_Nav_Menu extends Walker_Nav_Menu {
   
@@ -222,26 +240,27 @@ class WPDocs_Walker_Nav_Menu_Child extends Walker_Nav_Menu {
 add_theme_support( 'post-thumbnails' );
 
 //parent child page list
-function get_child_pages_by_parent_title($pageId,$limit = -1)
+function get_child_pages_by_parent_ID($pageId,$limit = -1)
 {
     // needed to use $post
     global $post;
     // used to store the result
-    $pages = array();
+    // $pages = array();
 
     // What to select
     $args = array(
         'post_type' => 'page',
         'post_parent' => $pageId,
+        'orderby' => 'menu_order',
+        'order' => 'ASC',
         'posts_per_page' => $limit
     );
     $the_query = new WP_Query( $args );
 
-    while ( $the_query->have_posts() ) {
-        $the_query->the_post();
-        $pages[] = $post;
-    }
-    wp_reset_postdata();
-    return $pages;
+    // while ( $the_query->have_posts() ) {
+    //     $the_query->the_post();
+    //     $pages[] = $post;
+    // }
+    // wp_reset_postdata();
+    return $the_query;
 }
-// $result = get_child_pages_by_parent_title(12);

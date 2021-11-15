@@ -13,19 +13,21 @@
 							<li>
 								<a href="<?php echo get_field('facebook_link', 6); ?>" class="social-fb"></a>
 							</li>
-							<?php } if(get_field('twitter_link', 6) != ''){ ?>
-							<li>
-								<a href="<?php echo get_field('twitter_link', 6); ?>" class="social-twitter"></a>
-							</li>
-							<?php } if(get_field('youtube_link', 6) != ''){ ?>
+							<?php } 
+							//if(get_field('twitter_link', 6) != ''){ ?>
+							<!-- <li>
+								<a href="<?php //echo get_field('twitter_link', 6); ?>" class="social-twitter"></a>
+							</li> -->
+							<?php //} 
+							if(get_field('youtube_link', 6) != ''){ ?>
 							<li>
 								<a href="<?php echo get_field('youtube_link', 6); ?>" class="social-utube"></a>
 							</li>
-							<?php } if(get_field('linkedin_link', 6) != ''){ ?>
-							<li>
-								<a href="<?php echo get_field('linkedin_link', 6); ?>" class="social-linkedin"></a>
-							</li>
-							<?php } ?>
+							<?php } //if(get_field('linkedin_link', 6) != ''){ ?>
+							<!-- <li>
+								<a href="<?php //echo get_field('linkedin_link', 6); ?>" class="social-linkedin"></a>
+							</li> -->
+							<?php //} ?>
 						</ul>
 					</div>
 				</div>

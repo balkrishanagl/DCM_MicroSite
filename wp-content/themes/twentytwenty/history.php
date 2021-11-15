@@ -26,13 +26,14 @@
 			<div class="container">
 				<ol class="breadcrumb mb-0">
 				  <li class="breadcrumb-item"><a href="<?php echo home_url('/') ?>"><i class="home-icon"></i>Home</a></li>
-				  <li class="breadcrumb-item"><a href="#">Who We are</a></li>
+				  <li class="breadcrumb-item"><a href="#"><?php echo get_the_title($post->post_parent); ?></a></li>
 				  <li class="breadcrumb-item active"><a href="#"><?php echo get_the_title(); ?></a></li>
 				</ol>
 			</div>
 		</div>
 		<!-- <div class="container"> -->
-			<?php include('howWeAre_pagesLink.php'); ?>
+			<?php include('howWeAre_pagesLink.php');
+			//print_r(get_child_pages_by_parent_title(250)); ?>
 			<div class="tab-content tab-content-custom">
 			  <div class="tab-pane fade show active" id="pills-leaership">
 			  	<div class="container">
