@@ -31,9 +31,7 @@
 			  					<h1 class="ft-start-title full-block-title">
 			  						<?php echo get_field('subtitle', $post->ID) ?>
 			  					</h1>
-			  					<p class="about-text">
 			  						<?php the_content(); ?>
-			  					</p>
 			  					
 			  				</div>
 			  				<div class="col-md-5 mb-4 mb-md-0">
