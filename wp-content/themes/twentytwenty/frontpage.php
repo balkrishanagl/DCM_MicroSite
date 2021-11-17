@@ -17,7 +17,7 @@ get_header('new');
 				    ?>
 					<figure class="pic-<?php echo $i; ?>" style="background:url(<?php echo $image[0]; ?>);">
 					</figure>
-					<div class="banner-caption banner-caption<?php echo $i; ?>">
+					<div class="banner-caption banner-caption">
 						<h1 class="banner-caption-title"><?php echo $loop->post->post_title; ?></h1>
 						<p class="banner-caption-text mb-0"><?php echo $loop->post->post_content; ?></p>
 					</div>
