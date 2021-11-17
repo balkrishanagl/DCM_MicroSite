@@ -50,7 +50,7 @@
 	  		  		
 	  		  			
 			  		  	$count = 1;
-			  		  	$args = array('post_type' => 'milestones','posts_per_page' => -1, 'order' => 'DESC',
+			  		  	$args = array('post_type' => 'milestones','posts_per_page' => -1, 'order' => 'ASC',
 							        'tax_query' => array(
 							            array(
 							                'taxonomy' => 'milestone_year',
