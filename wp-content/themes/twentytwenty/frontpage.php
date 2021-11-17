@@ -210,7 +210,7 @@ get_header('new');
 						<div class="list-group list-group-flush list-group-custom">
 							<h3 class="d-flex list-group-title">
 								<?php $field = get_field('latest_new_section'); echo esc_html( $field['latest_new_heading']); echo get_field('latest_news_heading', $post->ID); ?>
-								<a href="<?php echo esc_html( $field['latest_new_page_url']); ?>" class="ms-auto mt-auto"><span><?php echo esc_html( $field['latest_new_url_text']); ?></span></a>
+								<a href="<?php echo esc_html( $field['latest_news_page_url']); ?>" class="ms-auto mt-auto"><span><?php echo esc_html( $field['latest_news_url_text']); ?></span></a>
 							</h3>
 							<?php  
 							    $args = array('post_type' => 'latest_news', 'posts_per_page' => 3, 'order' => 'DESC');
