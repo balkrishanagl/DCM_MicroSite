@@ -34,32 +34,27 @@
 			  					<p class="about-text">
 			  						<?php the_content(); ?>
 			  					</p>
-			  					<p class="about-text">
-			  						<?php echo get_field('first_section_para', $post->ID) ?>
-			  					</p>
 			  					
 			  				</div>
 			  				<div class="col-md-5 mb-4 mb-md-0">
-			  					<img src="<?php echo get_field('first_content_image', $post->ID) ?>" class="img-fluid">
+			  					<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); 
+			  							 if(!empty($image)){ ?>
+						  		  	    	<img src="<?php echo $image[0]; ?>" alt="<?php echo get_the_title(); ?>" title="<?php echo get_the_title(); ?>" class="img-fluid">
+						  		  		<?php } ?>
 			  								  			
 			  				</div>
 			  			</div>
 			  			<div class="row sec-product sec-product1">
 			  				<div class="col-md-5">		
-			  				<img src="<?php echo get_field('second_content_image', $post->ID) ?>" class="img-fluid">	  					
+			  				<img src="<?php echo get_field('first_content_image', $post->ID) ?>" class="img-fluid">	  					
 			  								
 			  				</div>
 			  				<div class="col-md-6 supplier-block align-self-center">
 			  					<h2 class="ft-start-title full-block-title full-block-title-small">
-			  						<?php echo get_field('second_title', $post->ID) ?>
+			  						<?php echo get_field('first_title', $post->ID) ?>
 			  					</h2>
-			  					<p class="about-text">
-			  						<?php echo get_field('second_content', $post->ID) ?>
-			  					</p>
-			  					<p class="about-text">
-			  						<?php echo get_field('second_content_2', $post->ID) ?>
-			  						
-			  					</p>
+			  					<?php echo get_field('first_section_para', $post->ID) ?>
+			  					
 			  				</div>
 			  			</div>
 			  		</div>
