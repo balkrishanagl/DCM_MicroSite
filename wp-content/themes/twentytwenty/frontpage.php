@@ -15,9 +15,9 @@ get_header('new');
 			        
 			        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $loop->post->ID ), 'single-post-thumbnail' );
 				    ?>
-					<figure class="pic-<?php echo $i; ?>" style="background:url(<?php echo $image[0]; ?>);">
+					<figure class="figure pic-<?php echo $i; if($i == 1){ ?>showClass<?php }else{ ?>hideClass<?php } <?php } ?>" style="background:url(<?php echo $image[0]; ?>);">
 					</figure>
-					<div class="banner-caption banner-caption">
+					<div class="banner-caption">
 						<h1 class="banner-caption-title"><?php echo $loop->post->post_title; ?></h1>
 						<p class="banner-caption-text mb-0"><?php echo $loop->post->post_content; ?></p>
 					</div>

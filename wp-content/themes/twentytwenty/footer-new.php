@@ -42,6 +42,33 @@
 	
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
 		<script type="text/javascript">
+
+			   var nodeList1 = document.getElementsByClassName('figure');
+			   var timer1;
+			   var count1 = 0;
+			   for(var i=0;i<nodeList1.length;i++) {
+				var s = nodeList1[i];
+				console.log(s)
+			   }
+			   setInterval(showBanner1, 6000);
+			   function showBanner1(){
+					//$(nodeList[0]).addClass('hello')
+					nodeList1[count1].classList.remove("showClass");
+					nodeList1[count1].classList.add("hideClass");
+					count1++;
+					if(count1>=nodeList1.length){
+						count1=0;
+					}
+					nodeList1[count1].classList.remove("hideClass");
+					nodeList1[count1].classList.add("showClass");
+					
+					for(var i=0;i<nodeList1.length;i++) {
+				var s = nodeList1[i];
+				console.log(s)
+			   }
+					
+				}
+
 			$(document).ready(function(){
 				$('#carousel-learn').owlCarousel({
 						loop:false,
@@ -195,7 +222,12 @@
 				 $("#myModal1").on('hidden.bs.modal', function (e) {
 				      $("#myModal1 iframe").attr("src", $("#myModal1 iframe").attr("src"));
 				  });
-
+				 $("#myModal2").on('hidden.bs.modal', function (e) {
+				      $("#myModal2 iframe").attr("src", $("#myModal2 iframe").attr("src"));
+				  });
+				 $("#myModal3").on('hidden.bs.modal', function (e) {
+				      $("#myModal3 iframe").attr("src", $("#myModal3 iframe").attr("src"));
+				  });
 				 $('.navbar-toggler').click(function(){
 				 	$(this).toggleClass("active");
 				 	$('body').toggleClass("body-scroll");
