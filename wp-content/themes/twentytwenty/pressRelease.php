@@ -35,7 +35,7 @@
 			<div class="container">
 				<ul class="nav nav-pills nav-fill">
 				  <li class="nav-item">
-				    <a href="javascript:void(0)" class="nav-link active">Press Release</a>
+				    <a href="<?php echo get_permalink($post->ID); ?>" class="nav-link active">Press Release</a>
 				  </li>
 				  <li class="nav-item">
 				    <a href="javascript:void(0)" class="nav-link">In the News</a>
@@ -51,87 +51,46 @@
 		</div>
 		<div class="tab-content tab-content-custom">
 		  <div class="tab-pane fade show active">
-		  	<div class="container">(
-		  			  		<h1 class="about-title text-center press-title"><?php get_the_title(); ?></h1>
+		  	<div class="container">
+		  			  		<h1 class="about-title text-center press-title"><?php echo get_the_title(); ?></h1>
 		  		<ul class="list-group list-press rounded-0">
 		  			<?php 
-		  				$args = array(
-						        'post_type' => 'press-release', 'posts_per_page' => -1, 'order' => 'DESC');
+		  						global $post;								
+								$display_count = 2;
+								$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
+								$offset = ( $paged - 1 ) * $display_count;
+		  				$args = array('post_type' => 'press_release', 'posts_per_page' => $display_count, 'paged' => $paged, 'offset' => $offset, 'orderby' => 'id','order' => 'DESC');
 						   $loop = new WP_Query( $args );
-						   // while ( $loop->have_posts() ) : $loop->the_post();
-		  			?>
-		  		  <li class="list-group-item d-flex align-items-center">
-		  		  	<div class="flex-grow-1">
-		  		  	  <p class="list-press-text">
-		  		  	  	DCM Shriram Ltd extends 100 Oxygen Concentrators to district 
-		  		  	  	administration
-		  		  	  </p>
-		  		  	  <p class="list-press-sub-text">Nafa Nuksan, <span class="font-italic">05/10/2021</span></p>
-		  		  	</div>
-		  		  	<div class="flex-shrink-0">
-		  		  	  <img src="images/pdf-icon1.png" alt="" title="">
-		  		  	</div>
-		  		  </li>
-		  		  <li class="list-group-item d-flex align-items-center">
-		  		  	<div class="flex-grow-1">
-		  		  	  <p class="list-press-text">
-		  		  	  	DCM Shriram Ltd extends 100 Oxygen Concentrators to district 
-		  		  	  	administration
-		  		  	  </p>
-		  		  	  <p class="list-press-sub-text">Kota Bureau, <span class="font-italic">05/10/2021</span></p>
-		  		  	</div>
-		  		  	<div class="flex-shrink-0">
-		  		  	  <img src="images/pdf-icon1.png" alt="" title="">
-		  		  	</div>
-		  		  </li>
-		  		  <li class="list-group-item d-flex align-items-center">
-		  		  	<div class="flex-grow-1">
-		  		  	  <p class="list-press-text">
-		  		  	  	DCM Shriram Ltd extends 100 Oxygen Concentrators to district 
-		  		  	  	administration
-		  		  	  </p>
-		  		  	  <p class="list-press-sub-text">Nafa Nuksan, <span class="font-italic">05/10/2021</span></p>
-		  		  	</div>
-		  		  	<div class="flex-shrink-0">
-		  		  	  <img src="images/pdf-icon1.png" alt="" title="">
-		  		  	</div>
-		  		  </li>
-		  		  <li class="list-group-item d-flex align-items-center">
-		  		  	<div class="flex-grow-1">
-		  		  	  <p class="list-press-text">
-		  		  	  	Fenesta expands retail presence in Jhansi
-		  		  	  </p>
-		  		  	  <p class="list-press-sub-text">Dainik Bhaskar,<span class="font-italic">07/05/2021</span></p>
-		  		  	</div>
-		  		  	<div class="flex-shrink-0">
-		  		  	  <img src="images/pdf-icon1.png" alt="" title="">
-		  		  	</div>
-		  		  </li>
-		  		  <li class="list-group-item d-flex align-items-center">
-		  		  	<div class="flex-grow-1">
-		  		  	  <p class="list-press-text">
-		  		  	  	DCM Shriram Q4 net up 15% to Rs232 cr
-		  		  	  </p>
-		  		  	  <p class="list-press-sub-text">The Hans India,<span class="font-italic">05/15/2021</span></p>
-		  		  	</div>
-		  		  	<div class="flex-shrink-0">
-		  		  	  <img src="images/pdf-icon1.png" alt="" title="">
-		  		  	</div>
-		  		  </li>
-		  		  <li class="list-group-item d-flex align-items-center">
-		  		  	<div class="flex-grow-1">
-		  		  	  <p class="list-press-text">
-		  		  	  	DCM Shriram to invest Rs 1,000 crore in Chemicals Biz
-		  		  	  </p>
-		  		  	  <p class="list-press-sub-text">The Economic Times,<span class="font-italic">2/03/2021</span></p>
-		  		  	</div>
-		  		  	<div class="flex-shrink-0">
-		  		  	  <img src="images/pdf-icon1.png" alt="" title="">
-		  		  	</div>
-		  		  </li>
-		  		</ul>
-		  		<!-- pagination -->
-		  		<ul class="pagination justify-content-center pagination-custom">
+					    	if($loop->have_posts()) { 
+						   		while ( $loop->have_posts() ) : $loop->the_post();
+		  					?>
+						  		  <li class="list-group-item d-flex align-items-center">
+						  		  	<div class="flex-grow-1">
+						  		  	  <p class="list-press-text">
+						  		  	  	<?php echo get_the_title(); ?>
+						  		  	  </p>
+						  		  	  <p class="list-press-sub-text"><?php echo get_field('person_name', $loop->post->ID); ?><span class="font-italic"><?php echo get_field('date', $loop->post->ID); ?></span></p>
+						  		  	</div>
+						  		  	<div class="flex-shrink-0">
+						  		  	  <a href="<?php echo get_field('upload_file', $loop->post->ID); ?>" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/pdf-icon1.png" alt="" title=""></a>
+						  		  	</div>
+						  		  </li>
+						  		<?php endwhile; 
+						  				wp_reset_postdata();
+			  		  	 	} 
+			  		  	 	?>
+
+					  		</ul>
+					  		<!-- pagination -->
+					  		<?php 
+					  		if (function_exists("cq_pagination")) {
+							
+							  cq_pagination($loop->max_num_pages); 
+						}
+
+					?>
+		  		<!-- <ul class="pagination justify-content-center pagination-custom">
+		  			
 		  		  <li class="page-item">
 		  		    <a class="page-link" href="#">
 		  		      <img src="images/vid-prev-arrow-hover.png" alt="" title="">
@@ -150,7 +109,7 @@
 		  		      <img src="images/vid-next-arrow-hover.png" alt="" title="">
 		  		    </a>
 		  		  </li>
-		  		</ul>
+		  		</ul> -->
 		  	</div>
 		  </div>
 		</div>

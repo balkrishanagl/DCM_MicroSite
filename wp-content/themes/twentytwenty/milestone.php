@@ -25,7 +25,7 @@
 	<div class="sec-breadcrumb">
 			<div class="container">
 				<ol class="breadcrumb mb-0">
-				  <li class="breadcrumb-item"><a href="<?php echo home_url('/') ?>">"><i class="home-icon"></i>Home</a></li>
+				  <li class="breadcrumb-item"><a href="<?php echo home_url('/') ?>"><i class="home-icon"></i>Home</a></li>
 				  <li class="breadcrumb-item"><a href="#"><?php echo get_the_title($post->post_parent); ?></a></li>
 				  <li class="breadcrumb-item active"><a href="#"><?php echo get_the_title(); ?></a></li>
 				</ol>
@@ -38,249 +38,63 @@
 	  		  	<h1 class="about-title text-center tab-content-custom-title"><?php echo get_the_title(); ?></h1>
 
 	  		  	<ul class="timeline">
-	  		  		<!-- Item 1 -->
-	  		  		<li class="pt-0">
-	  		  			<div class="direction-l">
-	  		  				<div class="flag-wrapper">
-	  		  					<span class="flag">1997</span>
-	  		  				</div>
-	  		  				<div class="flag-hr"></div>
-	  		  				<div class="card rounded-0 border-0 card-direction">
-	  		  					<img src="images/img-1997.jpg" alt="" title="" class="img-fluid">
-	  		  					<div class="card-body">
-	  		  						<p class="card-direction-text mb-0">Commencement of First Sugar unit at Ajbapur</p>
-	  		  					</div>
-	  		  				</div>
-	  		  			</div>
-	  		  		</li>
-	  		  	  
-	  		  		<!-- Item 2 -->
-	  		  		<li class="pt-0 direction-r-negative">
-	  		  			<div class="direction-r">
-	  		  				<div class="flag-wrapper">
-	  		  					<span class="flag">2002</span>
-	  		  				</div>
-	  		  				<div class="flag-hr"></div>
-	  		  				<div class="card rounded-0 border-0 card-direction">
-	  		  					<img src="images/img-2002.jpg" alt="" title="" class="img-fluid">
-	  		  					<div class="card-body">
-	  		  						<p class="card-direction-text mb-0">Acquisition of Rupapur Sugar unit</p>
-	  		  					</div>
-	  		  				</div>
-	  		  			</div>
-	  		  		</li>
+	  		  		<?php 
+	  		  		$term_year = get_terms([
+							    'taxonomy' => 'milestone_year',
+							    'hide_empty' => false,
+							]);
+	  		  		//print_r($term_year);
+	  		  		$i = 0;
+	  		  		$innerdiv = 1;
+	  		  		foreach ($term_year as $Termyr) {
+	  		  		
+	  		  			
+			  		  	$count = 1;
+			  		  	$args = array('post_type' => 'milestones','posts_per_page' => -1, 'order' => 'DESC',
+							        'tax_query' => array(
+							            array(
+							                'taxonomy' => 'milestone_year',
+							                'field' => 'slug',
+							                'terms' => $Termyr->slug,
+							            ),
+							        ),
+							     );
 
-	  		  		<!-- Item 3 -->
-	  		  		<li class="pt-0 direction-l-negative">
-	  		  			<div class="direction-l">
-	  		  				<div class="flag-wrapper">
-	  		  					<span class="flag">2005</span>
-	  		  				</div>
+		    				 $loop = new WP_Query($args);
+		    				 
+		    				 if($loop->have_posts()) { 
+		    				 	$count = 1;
+		    				 	?>
+		    				 	
+		    				 <?php 	while($loop->have_posts()) : $loop->the_post();
+		    				 	$image = wp_get_attachment_image_src( get_post_thumbnail_id( $loop->post->ID ), 'single-post-thumbnail' ); ?> 
+	  		  		
+	  		  			<li class="pt-0 <?php if($i == 0){ }else { if($i%2 != 0){ ?>direction-r-negative<?php } if($i%2 == 0){ ?>direction-l-negative<?php } } ?>">
+	  		  			<div class="direction-<?php if($innerdiv%2 != 0){ ?>l<?php }else{ ?>r<?php } ?>">
+	  		  				<?php if($count ==1 ){ ?>
+		  		  				<div class="flag-wrapper">
+		  		  					<span class="flag"><?php echo $Termyr->slug; ?></span>
+		  		  				</div>
+	  		  				<?php } ?>
 	  		  				<div class="flag-hr"></div>
 	  		  				<div class="card rounded-0 border-0 card-direction">
-	  		  					<img src="images/img-2005-1.jpg" alt="" title="" class="img-fluid">
+	  		  					<img src="<?php echo $image[0]; ?>" alt="" title="" class="img-fluid">
 	  		  					<div class="card-body">
-	  		  						<p class="card-direction-text mb-0">Commission of Sugar plants at Loni</p>
+	  		  						<p class="card-direction-text mb-0"><?php the_content(); ?></p>
 	  		  					</div>
 	  		  				</div>
 	  		  			</div>
 	  		  		</li>
-	  		  		<!-- Item 4 -->
-	  		  		<li class="pt-0 direction-r-negative">
-	  		  			<div class="direction-r">
-<!-- 	  		  				<div class="flag-wrapper">
-	  		  					<span class="flag">2002</span>
-	  		  				</div> -->
-	  		  				<div class="flag-hr"></div>
-	  		  				<div class="card rounded-0 border-0 card-direction">
-	  		  					<img src="images/img-2005-2.jpg" alt="" title="" class="img-fluid">
-	  		  					<div class="card-body">
-	  		  						<p class="card-direction-text mb-0">Commission of Sugar plants at Hariawan, Expansion at Ajbapur</p>
-	  		  					</div>
-	  		  				</div>
-	  		  			</div>
-	  		  		</li>
-	  		  	  <!-- Item 5 -->
-	  		  	  <li class="pt-0 direction-l-negative">
-	  		  	  	<div class="direction-l">
-	  		  	  		<div class="flag-wrapper">
-	  		  	  			<span class="flag">2014</span>
-	  		  	  		</div>
-	  		  	  		<div class="flag-hr"></div>
-	  		  	  		<div class="card rounded-0 border-0 card-direction">
-	  		  	  			<img src="images/img-2014.jpg" alt="" title="" class="img-fluid">
-	  		  	  			<div class="card-body">
-	  		  	  				<p class="card-direction-text mb-0">Food Safety System Certification for Ajbapur & Loni unit</p>
-	  		  	  			</div>
-	  		  	  		</div>
-	  		  	  	</div>
-	  		  	  </li>
-	  		  	  <!-- Item 6 -->
-	  		  	  <li class="pt-0">
-	  		  	  	<div class="direction-l mt150">
-	  		  	  		<div class="flag-hr"></div>
-	  		  	  		<div class="card rounded-0 border-0 card-direction">
-	  		  	  			<img src="images/img-2017-2.jpg" alt="" title="" class="img-fluid">
-	  		  	  			<div class="card-body">
-	  		  	  				<p class="card-direction-text mb-0">Global Agriculture Leadership Award for CSR Leadership by Indian Council of Food and Agriculture</p>
-	  		  	  			</div>
-	  		  	  		</div>
-	  		  	  	</div>
-	  		  	  	<div class="direction-r direction-r-negative">
-	  		  	  		<div class="flag-wrapper">
-	  		  	  			<span class="flag">2017</span>
-	  		  	  		</div>
-	  		  	  		<div class="flag-hr"></div>
-	  		  	  		<div class="card rounded-0 border-0 card-direction">
-	  		  	  			<img src="images/img-2017-1.jpg" alt="" title="" class="img-fluid">
-	  		  	  			<div class="card-body">
-	  		  	  				<p class="card-direction-text mb-0">Commissioning of Distillery at Hariawan</p>
-	  		  	  			</div>
-	  		  	  		</div>
-	  		  	  	</div>
-	  		  	  </li>
-	  		  	  <!-- Item 7 -->
-	  		  	  <li class="pt-0">
-	  		  	  	<div class="direction-l">
-	  		  	  		<div class="flag-wrapper">
-	  		  	  			<span class="flag">2018</span>
-	  		  	  		</div>
-	  		  	  		<div class="flag-hr"></div>
-	  		  	  		<div class="card rounded-0 border-0 card-direction">
-	  		  	  			<img src="images/img-2018.jpg" alt="" title="" class="img-fluid">
-	  		  	  			<div class="card-body">
-	  		  	  				<p class="card-direction-text mb-0">CII National Award for Excellence in Water Management in “Beyond the Fence”. Presented during CII - Water Innovation Summit held in Delhi</p>
-	  		  	  			</div>
-	  		  	  		</div>
-	  		  	  	</div>
-	  		  	  	<div class="direction-r mt230">
-	  		  	  		<div class="flag-hr"></div>
-	  		  	  		<div class="card rounded-0 border-0 card-direction">
-	  		  	  			<img src="images/img-2018-1.jpg" alt="" title="" class="img-fluid">
-	  		  	  			<div class="card-body">
-	  		  	  				<p class="card-direction-text mb-0">Expansion of cane crushing 5000 TCD & Co gen power 30 MW at Hariawan</p>
-	  		  	  			</div>
-	  		  	  		</div>
-	  		  	  	</div>
-	  		  	  	<div class="direction-l mt85">
-	  		  	  		<div class="flag-hr"></div>
-	  		  	  		<div class="card rounded-0 border-0 card-direction">
-	  		  	  			<img src="images/img-2018-2.jpg" alt="" title="" class="img-fluid">
-	  		  	  			<div class="card-body">
-	  		  	  				<p class="card-direction-text mb-0">Sugar Technologist Association of India (STAI) - – Industry Excellence Award</p>
-	  		  	  			</div>
-	  		  	  		</div>
-	  		  	  	</div>
-	  		  	  	<div class="direction-r mt85">
-	  		  	  		<div class="flag-hr"></div>
-	  		  	  		<div class="card rounded-0 border-0 card-direction">
-	  		  	  			<img src="images/img-2018-3.jpg" alt="" title="" class="img-fluid">
-	  		  	  			<div class="card-body">
-	  		  	  				<p class="card-direction-text mb-0">Best Partnership Award - by Solidaridad, a Netherlands based organization and also a partner in DCM Shriram Ltd’s Meetha Sona Project</p>
-	  		  	  			</div>
-	  		  	  		</div>
-	  		  	  	</div>
-	  		  	  	<div class="direction-l mt85">
-	  		  	  		<div class="flag-hr"></div>
-	  		  	  		<div class="card rounded-0 border-0 card-direction">
-	  		  	  			<img src="images/img-2018-4.jpg" alt="" title="" class="img-fluid">
-	  		  	  			<div class="card-body">
-	  		  	  				<p class="card-direction-text mb-0">Halal Certificate</p>
-	  		  	  			</div>
-	  		  	  		</div>
-	  		  	  	</div>
-	  		  	  </li>
-	  		  	  <!-- Item 8 -->
-	  		  	  <li class="pt-0 order-change1">
-	  		  	  	<div class="direction-l mt230">
-	  		  	  		<div class="flag-hr"></div>
-	  		  	  		<div class="card rounded-0 border-0 card-direction">
-	  		  	  			<img src="images/img-2019.jpg" alt="" title="" class="img-fluid">
-	  		  	  			<div class="card-body">
-	  		  	  				<p class="card-direction-text mb-0">Bonsucro Inspire Awards 2019 for Inspiring Sustainability Partnerships at Bonsucro Global Week</p>
-	  		  	  			</div>
-	  		  	  		</div>
-	  		  	  	</div>
-	  		  	  	<div class="direction-r">
-	  		  	  		<div class="flag-wrapper">
-	  		  	  			<span class="flag">2019</span>
-	  		  	  		</div>
-	  		  	  		<div class="flag-hr"></div>
-	  		  	  		<div class="card rounded-0 border-0 card-direction">
-	  		  	  			<img src="images/img-2019-1.jpg" alt="" title="" class="img-fluid">
-	  		  	  			<div class="card-body">
-	  		  	  				<p class="card-direction-text mb-0">Bonsucro Inspire Awards 2019 for Inspiring Sustainability Partnerships at Bonsucro Global Week</p>
-	  		  	  			</div>
-	  		  	  		</div>
-	  		  	  	</div>
-	  		  	  </li>
-  	  		  	  <!-- Item 9 -->
-  	  		  	  <li class="pt-0 mt-3">
-  	  		  	  	<div class="direction-l">
-  	  		  	  		<div class="flag-wrapper">
-  	  		  	  			<span class="flag">2020</span>
-  	  		  	  		</div>
-  	  		  	  		<div class="flag-hr"></div>
-  	  		  	  		<div class="card rounded-0 border-0 card-direction">
-  	  		  	  			<img src="images/img-2020.jpg" alt="" title="" class="img-fluid">
-  	  		  	  			<div class="card-body">
-  	  		  	  				<p class="card-direction-text mb-0">CII National Award for Excellence in Water Management for its project implementation at Sugar catchment areas of Lakhimpur and Hardoi district, Uttar Pradesh</p>
-  	  		  	  			</div>
-  	  		  	  		</div>
-  	  		  	  	</div>
-  	  		  	  	<div class="direction-r mt230">
-  	  		  	  		<div class="flag-hr"></div>
-  	  		  	  		<div class="card rounded-0 border-0 card-direction">
-  	  		  	  			<img src="images/img-2020-1.jpg" alt="" title="" class="img-fluid">
-  	  		  	  			<div class="card-body">
-  	  		  	  				<p class="card-direction-text mb-0">Special Recognition Award at the CII National Competition and Summit in LEAN</p>
-  	  		  	  			</div>
-  	  		  	  		</div>
-  	  		  	  	</div>
-  	  		  	  	<div class="direction-l mt85">
-  	  		  	  		<div class="flag-hr"></div>
-  	  		  	  		<div class="card rounded-0 border-0 card-direction">
-  	  		  	  			<img src="images/img-2020-2.jpg" alt="" title="" class="img-fluid">
-  	  		  	  			<div class="card-body">
-  	  		  	  				<p class="card-direction-text mb-0">Kosher certificate to Hariawan & Loni units</p>
-  	  		  	  			</div>
-  	  		  	  		</div>
-  	  		  	  	</div>
-  	  		  	  	<div class="direction-r mt110">
-  	  		  	  		<div class="flag-hr"></div>
-  	  		  	  		<div class="card rounded-0 border-0 card-direction">
-  	  		  	  			<img src="images/img-2020-3.jpg" alt="" title="" class="img-fluid">
-  	  		  	  			<div class="card-body">
-  	  		  	  				<p class="card-direction-text mb-0">ISO - 9001:2015, 14001:2015, 45001:2018</p>
-  	  		  	  			</div>
-  	  		  	  		</div>
-  	  		  	  	</div>
-  	  		  	  </li>
-  	  		  	  <!-- Item 9 -->
-  	  		  	  <li class="pt-0 mt-3 order-change1">
-  	  		  	  	<div class="direction-l mt230">
-  	  		  	  		<div class="flag-hr"></div>
-  	  		  	  		<div class="card rounded-0 border-0 card-direction">
-  	  		  	  			<img src="images/img-2021.jpg" alt="" title="" class="img-fluid">
-  	  		  	  			<div class="card-body">
-  	  		  	  				<p class="card-direction-text mb-0">BonSucro certification to Ajbapur, Hariawan & Loni</p>
-  	  		  	  			</div>
-  	  		  	  		</div>
-  	  		  	  	</div>
-  	  		  	  	<div class="direction-r">
-  	  		  	  		<div class="flag-wrapper">
-  	  		  	  			<span class="flag">2021</span>
-  	  		  	  		</div>
-  	  		  	  		<div class="flag-hr"></div>
-  	  		  	  		<div class="card rounded-0 border-0 card-direction">
-  	  		  	  			<img src="images/img-2021-1.jpg" alt="" title="" class="img-fluid">
-  	  		  	  			<div class="card-body">
-  	  		  	  				<p class="card-direction-text mb-0">Food Safety System Certification to Hariawan</p>
-  	  		  	  			</div>
-  	  		  	  		</div>
-  	  		  	  	</div>
-  	  		  	  </li>
-
+	  		  	  <?php  
+		  		  	  $innerdiv = $innerdiv+1;
+		  		  	  $count = $count+1;
+		  		  	   endwhile; 
+		  		  	    wp_reset_postdata();
+		  		  	 	} 
+		  		  	 	$i = $i+1; 
+		  		  	 }
+		    				 ?>
+	  		  		
 	  		  	</ul>
 			  	</div>
 			  </div>

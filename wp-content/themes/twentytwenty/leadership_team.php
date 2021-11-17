@@ -25,7 +25,7 @@
 	<div class="sec-breadcrumb">
 			<div class="container">
 				<ol class="breadcrumb mb-0">
-				  <li class="breadcrumb-item"><a href="<?php echo home_url('/') ?>">"><i class="home-icon"></i>Home</a></li>
+				  <li class="breadcrumb-item"><a href="<?php echo home_url('/') ?>"><i class="home-icon"></i>Home</a></li>
 				  <li class="breadcrumb-item"><a href="#"><?php echo get_the_title($post->post_parent); ?></a></li>
 				  <li class="breadcrumb-item active"><a href="#"><?php echo get_the_title(); ?></a></li>
 				</ol>
@@ -39,15 +39,7 @@
 	  		  	<?php the_content(); ?>
 	  		  	<?php 
 	  		  	$count = 1;
-	  		  	$args = array('post_type' => 'who_we_are',
-					        'tax_query' => array(
-					            array(
-					                'taxonomy' => 'category',
-					                'field' => 'slug',
-					                'terms' => 'leadership-team',
-					            ),
-					        ),
-					     );
+	  		  	$args = array('post_type' => 'leadership-team', 'posts_per_page' => -1, 'order' => 'DESC');
 
     				 $loop = new WP_Query($args);
     				 if($loop->have_posts()) {
