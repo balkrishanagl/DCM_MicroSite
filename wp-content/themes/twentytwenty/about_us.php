@@ -25,8 +25,8 @@
 	<div class="sec-breadcrumb">
 			<div class="container">
 				<ol class="breadcrumb mb-0">
-				  <li class="breadcrumb-item"><a href="#"><i class="home-icon"></i>Home</a></li>
-				  <li class="breadcrumb-item"><a href="#">About us</a></li>
+				  <li class="breadcrumb-item"><a href="<?php echo home_url('/') ?>"><i class="home-icon"></i>Home</a></li>
+				  <li class="breadcrumb-item"><a href="#"><?php echo get_the_title(); ?></a></li>
 				  
 				</ol>
 			</div>
@@ -45,7 +45,50 @@
 			</div>
 			<div class="sec-process">
 				<h1 class="text-center process-main-title"><?php echo get_field('subtitle', $post->ID) ?></h1>	
-				<?php echo get_field('second_para', $post->ID) ?>
+				<ul class="list-unstyled d-flex list-process justify-content-center mb-0">
+					<li>
+						<span class="pro-circle d-flex align-items-center justify-content-center">
+							<img src="<?php echo get_field('first_content_image', $post->ID) ?>" alt="" title="" class="img-fluid">
+						</span>
+						<span class="process-title">Sugar</span>
+						<i class="hr-arr"></i>
+					</li>
+					<li>
+						<span class="pro-circle pro-circle2 d-flex align-items-center justify-content-center">
+							<img src="<?php echo get_field('above_footer_left_img4', $post->ID) ?>" alt="" title="" class="img-fluid">
+						</span>
+						<span class="process-title">Ethanol</span>
+						<i class="hr-arr"></i>
+					</li>
+					<li>
+						<span class="pro-circle pro-circle6 d-flex align-items-center justify-content-center">
+							<img src="<?php echo get_field('above_footer_left_img5', $post->ID) ?>" alt="" title="" class="img-fluid">
+						</span>
+						<span class="process-title">Power</span>
+						<i class="hr-arr"></i>
+					</li>
+					<li>
+						<span class="pro-circle pro-circle3 d-flex align-items-center justify-content-center">
+							<img src="<?php echo get_field('above_footer_right_img1', $post->ID) ?>" alt="" title="" class="img-fluid">
+						</span>
+						<span class="process-title">Molasses</span>
+						<i class="hr-arr"></i>
+					</li>
+					<li>
+						<span class="pro-circle d-flex align-items-center justify-content-center">
+							<img src="<?php echo get_field('above_footer_right_img2', $post->ID) ?>" alt="" title="" class="img-fluid">
+						</span>
+						<span class="process-title">Bagasse</span>
+						<i class="hr-arr"></i>
+					</li>
+					<li>
+						<span class="pro-circle d-flex align-items-center justify-content-center">
+							<img src="<?php echo get_field('above_footer_right_img3', $post->ID) ?>" alt="" title="" class="img-fluid">
+						</span>
+						<span class="process-title">Press Mud</span>
+						<i class="hr-arr"></i>
+					</li>
+				</ul>
 			</div>
 		</section>
 <section class="about-2">
@@ -68,41 +111,24 @@
 				<?php echo get_field('first_section_para', $post->ID) ?>
 					<div class="info-circle">
 						<div class="position-relative">
-							<img src="images/info-circle.png" alt="" title="" class="img-fluid d-none d-md-block">
-							<img src="images/info-circle-mob.png" alt="" title="" class="img-fluid d-block d-md-none mx-width">
+							<img src="<?php echo get_field('above_footer_left_img1', $post->ID) ?>" alt="" title="" class="img-fluid d-none d-md-block">
+							<img src="<?php echo get_field('above_footer_left_img2', $post->ID) ?>" alt="" title="" class="img-fluid d-block d-md-none mx-width">
 							
 							<div class="info-content">
 								<div class="info-content-img">
-									<img src="images/kisan-img.png" alt="" title="" class="img-fluid mx-auto d-block">
+									<img src="<?php echo get_field('above_footer_left_img3', $post->ID) ?>" alt="" title="" class="img-fluid mx-auto d-block">
 								</div>
-								<span class="info-title d-block text-center">Growers</span>
-								<span class="info-title d-block text-center">2.25 lac</span>
+								<?php echo get_field('second_title', $post->ID) ?>
+								
 							</div>
 						</div>
 					</div>
-					<ul class="list-unstyled list-info text-start list-info-end">
-						<li>
-							<span class="d-block list-info-title">Ethanol Production</span>
-							<span class="list-info-text">Units 2 (Ajbapur & <br> Hariawani- Uttar Pradesh)</span>
-						</li>
-						<li class="list-info-end2">
-							<span class="d-block list-info-title">Crush capacity</span>
-							<span class="list-info-text">38000 TCD</span>
-						</li>
-						<li class="list-info-end3">
-							<span class="d-block list-info-title">DISTILLERY CAPACITY</span> 
-							<span class="list-info-text">350 KLD</span>
-						</li>
-						<li class="list-info-end4">
-							<span class="d-block list-info-title">ETHANOL PRODUCTION</span>  
-							<span class="list-info-text">Annual 140 Million Liters</span>
-						</li>
-					</ul>
+					<?php echo get_field('second_content', $post->ID) ?>
+					
 				</div>
 				<div class="text-md-center">
 					<span class="negative-center">
-						<span class="d-block list-info-title">SUGAR PRODUCTION</span>  
-						<span class="list-info-text">Annual 650 Million Kilograms</span>
+						<?php echo get_field('second_content_2', $post->ID) ?>
 					</span>
 				</div>
 			</div>
