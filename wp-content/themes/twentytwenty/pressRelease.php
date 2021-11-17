@@ -72,7 +72,7 @@
 						  		  	  <p class="list-press-sub-text"><?php echo get_field('person_name', $loop->post->ID); ?><span class="font-italic"><?php echo get_field('date', $loop->post->ID); ?></span></p>
 						  		  	</div>
 						  		  	<div class="flex-shrink-0">
-						  		  	  <a href="<?php echo get_field('upload_file', $loop->post->ID); ?>" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/pdf-icon1.png" alt="" title=""></a>
+						  		  	  <a href="<?php echo get_field('file', $loop->post->ID); ?>" target="_blank"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/pdf-icon1.png" alt="" title=""></a>
 						  		  	</div>
 						  		  </li>
 						  		<?php endwhile; 
