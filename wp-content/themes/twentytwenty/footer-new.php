@@ -222,12 +222,12 @@
 				 $("#myModal1").on('hidden.bs.modal', function (e) {
 				      $("#myModal1 iframe").attr("src", $("#myModal1 iframe").attr("src"));
 				  });
-				 // $("#myModal2").on('hidden.bs.modal', function (e) {
-				 //      $("#myModal2 iframe").attr("src", $("#myModal2 iframe").attr("src"));
-				 //  });
-				 // $("#myModal3").on('hidden.bs.modal', function (e) {
-				 //      $("#myModal3 iframe").attr("src", $("#myModal3 iframe").attr("src"));
-				 //  });
+				 $("#myModal2").on('hidden.bs.modal', function (e) {
+				      $("#myModal2 iframe").attr("src", $("#myModal2 iframe").attr("src"));
+				  });
+				 $("#myModal3").on('hidden.bs.modal', function (e) {
+				      $("#myModal3 iframe").attr("src", $("#myModal3 iframe").attr("src"));
+				  });
 				 $('.navbar-toggler').click(function(){
 				 	$(this).toggleClass("active");
 				 	$('body').toggleClass("body-scroll");

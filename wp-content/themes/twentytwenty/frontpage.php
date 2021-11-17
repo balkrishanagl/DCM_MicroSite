@@ -15,13 +15,14 @@ get_header('new');
 			        
 			        $image = wp_get_attachment_image_src( get_post_thumbnail_id( $loop->post->ID ), 'single-post-thumbnail' );
 				    ?>
-					<figure class="figure pic-<?php echo $i; if($i == 1){ ?> showClass<?php } ?>" style="background:url(<?php echo $image[0]; ?>);">
+					<figure class="figure pic-<?php echo $i; if($i == 1){ ?> showClass<?php }else{ ?> hideClass<?php } ?>" style="background:url(<?php echo $image[0]; ?>);">
 					</figure>
 					<div class="banner-caption">
 						<h1 class="banner-caption-title"><?php echo $loop->post->post_title; ?></h1>
 						<p class="banner-caption-text mb-0"><?php echo $loop->post->post_content; ?></p>
 					</div>
 					<?php $i++; endwhile;
+					wp_reset_postdata();
 				    ?>
 				</div>
 				<?php 
@@ -151,7 +152,7 @@ get_header('new');
 											</div>
 										</div>
 									</div>
-								<?php endwhile; ?>
+								<?php endwhile; wp_reset_postdata(); ?>
 									<!-- <div class="item">
 										<div class="item-img position-relative">
 											<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/cr-2.jpg" alt="" title="" class="img-fluid">
@@ -208,7 +209,7 @@ get_header('new');
 					<div class="col-md col-news-list">
 						<div class="list-group list-group-flush list-group-custom">
 							<h3 class="d-flex list-group-title">
-								<?php $field = get_field('latest_new_section'); echo esc_html( $field['latest_new_heading']); ?>
+								<?php $field = get_field('latest_new_section'); echo esc_html( $field['latest_new_heading']); echo get_field('latest_news_heading', $post->ID); ?>
 								<a href="<?php echo esc_html( $field['latest_new_page_url']); ?>" class="ms-auto mt-auto"><span><?php echo esc_html( $field['latest_new_url_text']); ?></span></a>
 							</h3>
 							<?php  
@@ -223,7 +224,7 @@ get_header('new');
 								</div>
 								<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/pdf-icon.png" alt="" title="">
 							</a>
-						<?php endwhile; ?>
+						<?php endwhile; wp_reset_postdata(); ?>
 							<!-- <a href="#" class="list-group-item d-flex justify-content-between align-items-center">
 								<div>
 									<h5 class="list-group-custom-title">DCM Shriram extends 100 Oxygen Concentrators to administration</h5>
@@ -269,7 +270,7 @@ get_header('new');
 										<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/video-icon.png" alt="" title="" class="img-fluid">
 									</a>
 								</div>
-								<?php $i++; endwhile; ?>
+								<?php $i++; endwhile; wp_reset_postdata(); ?>
 								<!-- <div class="slide next-1">
 									<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/sl-2.jpg" alt="" title="" class="img-fluid">
 									<a href="javascript:void(0)" class="play-icon" data-bs-toggle="modal" data-bs-target="#myModal2">
@@ -318,7 +319,7 @@ get_header('new');
 							    		<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/video-icon.png" alt="" title="" class="img-fluid">
 							    	</a>
 							    </div>
-							  <?php $i++; endwhile; ?>
+							  <?php $i++; endwhile; wp_reset_postdata(); ?>
 				    <!-- <div class="item">
 				    	<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/sl-2.jpg" alt="" title="" class="img-fluid">
 				    	<a href="javascript:void(0)" class="play-icon" data-bs-toggle="modal" data-bs-target="#myModal2">
@@ -342,13 +343,13 @@ get_header('new');
 											 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 											<div class="modal-body p-0" id="yt-player">
 												<div class="ratio ratio-16x9">
-												  <iframe src="<?php the_excerpt(); ?>" title="YouTube video" frameborder="0" allowfullscreen></iframe>
+												  <iframe src="<?php the_excerpt($loop->post->ID); ?>" title="YouTube video" frameborder="0" allowfullscreen></iframe>
 												</div>
 											</div>
 									</div>
 							</div>
 						</div>
-						<?php $i++; endwhile; ?>
+						<?php $i++; endwhile; wp_reset_postdata(); ?>
 		<!-- <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 				<div class="modal-dialog modal-lg modal-dialog-centered">
 						<div class="modal-content">
