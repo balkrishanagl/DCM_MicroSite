@@ -25,7 +25,7 @@
 		<div class="sec-breadcrumb">
 			<div class="container">
 				<ol class="breadcrumb mb-0">
-				  <li class="breadcrumb-item"><a href="#"><i class="home-icon"></i>Home</a></li>
+				  <li class="breadcrumb-item"><a href="<?php echo home_url('/') ?>"><i class="home-icon"></i>Home</a></li>
 				  <li class="breadcrumb-item"><a href="#">Media and Contact</a></li>
 				  <li class="breadcrumb-item active"><a href="#">Press Release</a></li>
 				</ol>
