@@ -39,7 +39,7 @@
 	  		  	<?php the_content(); ?>
 	  		  	<?php 
 	  		  	$count = 1;
-	  		  	$args = array('post_type' => 'leadership-team', 'posts_per_page' => -1, 'order' => 'DESC');
+	  		  	$args = array('post_type' => 'leadership-team', 'posts_per_page' => -1, 'order' => 'ASC');
 
     				 $loop = new WP_Query($args);
     				 if($loop->have_posts()) {
