@@ -17,17 +17,24 @@ get_header('new');
 				    ?>
 					<figure class="pic-<?php echo $i; ?>" style="background:url(<?php echo $image[0]; ?>);">
 					</figure>
+					<div class="banner-caption banner-caption<?php echo $i; ?>">
+						<h1 class="banner-caption-title"><?php echo $loop->post->post_title; ?></h1>
+						<p class="banner-caption-text mb-0"><?php echo $loop->post->post_content; ?></p>
+					</div>
 					<?php $i++; endwhile;
 				    ?>
 				</div>
-				<?php $j=1;while ( $loop->have_posts() ) : $loop->the_post(); ?>
-				<div class="banner-caption banner-caption<?php echo $j; ?>">
+				<?php 
+				// $j=1;while ( $loop->have_posts() ) : $loop->the_post(); 
+				?>
+				<!-- <div class="banner-caption banner-caption<?php echo $j; ?>">
 					<h1 class="banner-caption-title"><?php echo $loop->post->post_title; ?></h1>
 					<p class="banner-caption-text mb-0"><?php echo $loop->post->post_content; ?></p>
 				</div>
-
-				<?php $j++;
-				endwhile;
+ -->
+				<?php 
+				// $j++;
+				// endwhile;
 				 wp_reset_query();
 				 ?>
 				
