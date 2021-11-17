@@ -35,7 +35,7 @@
 		</footer>
 <?php wp_footer(); ?>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+		<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 		
 		<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/js/owl.carousel.min.js"></script>
 		<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/plugin/3d-carousel/main.js"></script>
@@ -222,12 +222,12 @@
 				 $("#myModal1").on('hidden.bs.modal', function (e) {
 				      $("#myModal1 iframe").attr("src", $("#myModal1 iframe").attr("src"));
 				  });
-				 $("#myModal2").on('hidden.bs.modal', function (e) {
-				      $("#myModal2 iframe").attr("src", $("#myModal2 iframe").attr("src"));
-				  });
-				 $("#myModal3").on('hidden.bs.modal', function (e) {
-				      $("#myModal3 iframe").attr("src", $("#myModal3 iframe").attr("src"));
-				  });
+				 // $("#myModal2").on('hidden.bs.modal', function (e) {
+				 //      $("#myModal2 iframe").attr("src", $("#myModal2 iframe").attr("src"));
+				 //  });
+				 // $("#myModal3").on('hidden.bs.modal', function (e) {
+				 //      $("#myModal3 iframe").attr("src", $("#myModal3 iframe").attr("src"));
+				 //  });
 				 $('.navbar-toggler').click(function(){
 				 	$(this).toggleClass("active");
 				 	$('body').toggleClass("body-scroll");
