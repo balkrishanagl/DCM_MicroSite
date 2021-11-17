@@ -59,7 +59,7 @@
 								$display_count = 2;
 								$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
 								$offset = ( $paged - 1 ) * $display_count;
-		  				$args = array('post_type' => 'press_release', 'posts_per_page' => $display_count, 'paged' => $paged, 'offset' => $offset, 'orderby' => 'id','order' => 'DESC');
+		  				$args = array('post_type' => 'press-release', 'posts_per_page' => $display_count, 'paged' => $paged, 'offset' => $offset, 'orderby' => 'id','order' => 'DESC');
 						   $loop = new WP_Query( $args );
 					    	if($loop->have_posts()) { 
 						   		while ( $loop->have_posts() ) : $loop->the_post();
