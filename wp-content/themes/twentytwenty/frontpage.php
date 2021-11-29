@@ -343,7 +343,7 @@ get_header('new');
 											 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 											<div class="modal-body p-0" id="yt-player">
 												<div class="ratio ratio-16x9">
-												  <iframe src="<?php the_excerpt($loop->post->ID); ?>" title="YouTube video" frameborder="0" allowfullscreen></iframe>
+												  <iframe src="<?php echo get_field('url', $loop->post->ID); ?>" title="YouTube video" frameborder="0" allowfullscreen></iframe>
 												</div>
 											</div>
 									</div>

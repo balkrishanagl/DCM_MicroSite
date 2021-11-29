@@ -74,68 +74,70 @@
 		  				<div class="col-md col-width">
 		  					<div class="left-sidebar">
 		  						<ul class="list-unstyled mb-0">
+		  							<?php $field = get_field('left_side_section'); ?>
 		  							<li>
-		  								<span class="left-sidebar-title d-block">Villages Covered</span>
-		  								<span class="left-sidebar-digit d-block">2,275</span>
+		  								<span class="left-sidebar-title d-block"><?php echo esc_html( $field['1st_field_title']); ?></span>
+		  								<span class="left-sidebar-digit d-block"><?php echo esc_html( $field['1st_field_digit']); ?></span>
 		  							</li>
 		  							<li>
-		  								<span class="left-sidebar-title d-block">Cane Area</span>
-		  								<span class="left-sidebar-digit d-block">160 K Ha</span>
+		  								<span class="left-sidebar-title d-block"><?php echo esc_html( $field['2nd_field_title']); ?></span>
+		  								<span class="left-sidebar-digit d-block"><?php echo esc_html( $field['2nd_field_digit']); ?></span>
 		  							</li>
 		  							<li>
-		  								<span class="left-sidebar-title d-block">Farmers reach</span>
-		  								<span class="left-sidebar-digit d-block">225 K</span>
+		  								<span class="left-sidebar-title d-block"><?php echo esc_html( $field['3rd_field_title']); ?></span>
+		  								<span class="left-sidebar-digit d-block"><?php echo esc_html( $field['3rd_field_digit']); ?></span>
 		  							</li>
 		  							<li>
-		  								<span class="left-sidebar-title d-block">Demo Plots</span>
-		  								<span class="left-sidebar-digit d-block">10,000</span>
+		  								<span class="left-sidebar-title d-block"><?php echo esc_html( $field['4th_field_title']); ?></span>
+		  								<span class="left-sidebar-digit d-block"><?php echo esc_html( $field['4th_field_digit']); ?></span>
 		  							</li>
 		  							<li>
-		  								<span class="left-sidebar-title d-block">Extension workers</span>
-		  								<span class="left-sidebar-digit d-block">300</span>
+		  								<span class="left-sidebar-title d-block"><?php echo esc_html( $field['5th_field_title']); ?></span>
+		  								<span class="left-sidebar-digit d-block"><?php echo esc_html( $field['5th_field_digit']); ?></span>
 		  							</li>
 		  							<li>
-		  								<span class="left-sidebar-title d-block">Subject Experts</span>
-		  								<span class="left-sidebar-digit d-block">7</span>
+		  								<span class="left-sidebar-title d-block"><?php echo esc_html( $field['6th_field_title']); ?></span>
+		  								<span class="left-sidebar-digit d-block"><?php echo esc_html( $field['6th_field_digit']); ?></span>
 		  							</li>
 		  							<li>
-		  								<span class="left-sidebar-title d-block">Infra Support:</span>
-		  								<span class="left-sidebar-digit d-block">Bio Control Lab 2</span>
+		  								<span class="left-sidebar-title d-block"><?php echo esc_html( $field['7th_field_title']); ?></span>
+		  								<span class="left-sidebar-digit d-block"><?php echo esc_html( $field['7th_field_digit']); ?>2</span>
 		  							</li>
 		  							<li>
-		  								<span class="left-sidebar-title d-block">Infra Support:</span>
-		  								<span class="left-sidebar-digit d-block">Soil Lab 4</span>
+		  								<span class="left-sidebar-title d-block"><?php echo esc_html( $field['8th_field_title']); ?></span>
+		  								<span class="left-sidebar-digit d-block"><?php echo esc_html( $field['8th_field_digit']); ?></span>
 		  							</li>
 		  						</ul>
 		  					</div>
 		  				</div>
 		  				<div class="col-md-auto mx-auto">
+		  					<?php $field = get_field('right_side_section'); ?>
 		  					<div class="text-md-center d-none d-md-block mt-negative">
 		  						<span class="negative-center negative-center_2 position-relative">
-		  							<span class="d-block"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/sbi-logo.png" alt="" title=""></span>
-		  							<span class="list-info-text1">Varietal <span class="d-block">Improvement</span></span>
+		  							<span class="d-block"><img src="<?php echo esc_html( $field['1st_field_image_left_side']); ?>" alt="" title=""></span>
+		  							<span class="list-info-text1"><?php echo $field['1st_field_title_left_side']; ?></span>
 		  						</span>
 		  					</div>
 		  					<div class="d-flex flex-column flex-md-row">
 		  						<ul class="list-unstyled list-info-1 list-info-left">
 		  							<li class="list-info-left_1">
-		  								<span class="d-md-block"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/iisr-logo.png" alt="" title=""></span>
-		  								<span class="list-info-text1">Increasing the<span class="d-block">income of farmers</span></span>
+		  								<span class="d-md-block"><img src="<?php echo esc_html( $field['2nd_field_image_left_side']); ?>" alt="" title=""></span>
+		  								<span class="list-info-text1"><?php echo $field['2nd_field_title_left_side']; ?></span>
 		  							</li>
 		  							<li class="list-info-left_2 position-relative">
-		  								<span class="d-md-block"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/unnati-logo.png" alt="" title=""></span>
-		  								<span class="list-info-text1">Input supply<span class="d-block">to farmers</span></span>
+		  								<span class="d-md-block"><img src="<?php echo esc_html( $field['3rd_field_image_left_side']); ?>" alt="" title=""></span>
+		  								<span class="list-info-text1"><?php echo $field['3rd_field_title_left_side']; ?></span>
 		  							</li>
 		  							<li class="list-info-left_3 position-relative">
-		  								<span class="d-md-block"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/birla-logo.png" alt="" title=""></span>
-		  								<span class="list-info-text1">Customized <span class="d-block">fertilizer</span></span>
+		  								<span class="d-md-block"><img src="<?php echo esc_html( $field['4th_field_image_left_side']); ?>" alt="" title=""></span>
+		  								<span class="list-info-text1"><?php echo $field['4th_field_title_left_side']; ?></span>
 		  							</li>
 		  							<li class="list-info-left_4 position-relative">
 		  								<span class="d-md-block">
-		  									<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/vst-and-holand-logo.png" alt="" title="" class="d-none d-md-block">
-		  									<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/vst-and-holand-logo-mob.png" alt="" title="" class="d-block d-md-none">
+		  									<img src="<?php echo esc_html( $field['5th_field_image_left_side']); ?>" alt="" title="" class="d-none d-md-block">
+		  									<img src="<?php echo esc_html( $field['5th_field_image_mob_left_side']); ?>" alt="" title="" class="d-block d-md-none">
 		  								</span> 
-		  								<span class="list-info-text1">Mechanization</span>
+		  								<span class="list-info-text1"><?php echo $field['5th_field_title_left_side']; ?></span>
 		  							</li>
 		  						</ul>
 		  						<div class="info-circle info-circle1">
@@ -145,41 +147,41 @@
 		  								
 		  								<div class="info-content info-content1">
 		  									<div class="info-content-img info-content-img1 mb-2">
-		  										<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo1.png" alt="" title="" class="img-fluid mx-auto d-block">
+		  										<img src="<?php echo esc_html( $field['middle_field_image']); ?>" alt="" title="" class="img-fluid mx-auto d-block">
 		  									</div>
-		  									<span class="meetha-title text-center">Meetha Sona</span>
-		  									<span class="info-title info-title1 d-block text-center">Multi Stakeholder</span>
-		  									<span class="info-title info-title1 d-block text-center">Sustainable Sugarcane</span>
-		  									<span class="info-title info-title1 d-block text-center">program</span>
+		  									<span class="meetha-title text-center"><?php echo get_the_title(); ?></span>
+		  									<span class="info-title info-title1 d-block text-center"><?php echo $field['middle_field_line_1']; ?></span>
+		  									<span class="info-title info-title1 d-block text-center"><?php echo $field['middle_field_line_2']; ?></span>
+		  									<span class="info-title info-title1 d-block text-center"><?php echo $field['middle_field_line_3']; ?></span>
 		  								</div>
 		  							</div>
 		  						</div>
 		  						<ul class="list-unstyled list-info-1 list-info-end">
 		  							<li class="list-info-end_1 position-relative">
-		  								<span class="d-block"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/ifc-logo.png" alt="" title=""></span>
-		  								<span class="list-info-text1">Project Lead & <span class="d-block">Advisory</span></span>
+		  								<span class="d-block"><img src="<?php echo esc_html( $field['1st_field_image_right_side']); ?>" alt="" title=""></span>
+		  								<span class="list-info-text1"><?php echo $field['1st_field_title_right_side']; ?></span>
 		  							</li>
 		  							<li class="list-info-end_2 position-relative">
-		  								<span class="d-block"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/solidaridad-logo.png" alt="" title=""></span>
-		  								<span class="list-info-text1">Implementation <span class="d-block">Partner</span></span>
+		  								<span class="d-block"><img src="<?php echo esc_html( $field['2nd_field_image_right_side']); ?>" alt="" title=""></span>
+		  								<span class="list-info-text1"><?php echo $field['2nd_field_title_right_side']; ?></span>
 		  							</li>
 		  							<li class="list-info-end_3 position-relative">
-		  								<span class="d-block"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/mahindra-logo.png" alt="" title=""></span>
-		  								<span class="list-info-text1">Use of ICT for <span class="d-block">smart farm</span></span>
+		  								<span class="d-block"><img src="<?php echo esc_html( $field['3rd_field_image_right_side']); ?>" alt="" title=""></span>
+		  								<span class="list-info-text1"><?php echo $field['3rd_field_title_right_side']; ?></span>
 		  							</li>
 		  							<li class="list-info-end_4 position-relative">
 		  								<span class="d-block">
-		  									<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/rabobank-rivulis.png" alt="" title="" class="d-none d-md-block">
-		  									<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/rabobank-rivulis-mob.png" alt="" title="" class="d-block d-md-none">
+		  									<img src="<?php echo esc_html( $field['4th_field_image_right_side']); ?>" alt="" title="" class="d-none d-md-block">
+		  									<img src="<?php echo esc_html( $field['4th_field_image_mob_right_side']); ?>" alt="" title="" class="d-block d-md-none">
 		  								</span>
-		  								<span class="list-info-text1">Drip Irrigation</span>
+		  								<span class="list-info-text1"><?php echo $field['4th_field_title_right_side']; ?></span>
 		  							</li>
 		  						</ul>
 		  					</div>
 		  					<div class="text-md-center">
 		  						<span class="negative-center negative-center_1 position-relative">
-		  							<span class="d-block"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/em3-logo.jpg" alt="" title=""></span>
-		  							<span class="list-info-text1">Mechanization on <span class="d-block">Custom Hire</span></span>
+		  							<span class="d-block"><img src="<?php echo esc_html( $field['5th_field_image_right_side']); ?>" alt="" title=""></span>
+		  							<span class="list-info-text1"><?php echo $field['5th_field_title_right_side']; ?></span>
 		  						</span>
 		  					</div>
 		  				</div>

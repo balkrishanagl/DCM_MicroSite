@@ -48,7 +48,7 @@
 			   var count1 = 0;
 			   for(var i=0;i<nodeList1.length;i++) {
 				var s = nodeList1[i];
-				console.log(s)
+				// console.log(s)
 			   }
 			   setInterval(showBanner1, 6000);
 			   function showBanner1(){
@@ -64,7 +64,7 @@
 					
 					for(var i=0;i<nodeList1.length;i++) {
 				var s = nodeList1[i];
-				console.log(s)
+				// console.log(s)
 			   }
 					
 				}
